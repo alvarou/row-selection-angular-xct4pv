@@ -1,0 +1,48 @@
+<div style="margin-bottom: 30px">
+  <h4>
+    See full article:
+    <a
+      href="https://blog.ag-grid.com/styling-selected-rows-and-cell-ranges-in-ag-grid/"
+    >
+      Styling selected rows and cell ranges in ag-Grid
+    </a>
+  </h4>
+</div>
+
+<button
+  (click)="setThemeName('red-theme')"
+  type="button"
+  class="btn btn-outline-danger"
+>
+  RED
+</button>
+
+<button
+  (click)="setThemeName('green-theme')"
+  type="button"
+  class="btn btn-outline-success"
+>
+  GREEN
+</button>
+
+<button
+  (click)="setThemeName('')"
+  type="button"
+  class="btn btn-outline-primary"
+>
+  DEFAULT BLUE
+</button>
+
+<div id="grid-theme-wrapper" style="height: 100%" [className]="themeName">
+  <ag-grid-angular
+    style="width: 100%; height: 600px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [enableRangeSelection]="true"
+    [rowSelection]="'single'"
+    (gridReady)="onGridReady($event)"
+    (firstDataRendered)="onFirstDataRendered($event)"
+  >
+  </ag-grid-angular>
+</div>
